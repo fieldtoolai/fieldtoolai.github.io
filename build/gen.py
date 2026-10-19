@@ -228,7 +228,7 @@ page("404.html", f"Page not found | {NAME}", "Page not found.", nf, -1)
 # ---------- SEO files ----------
 urls = ["", "advertise.html", "about.html", "privacy.html"] + [f"trades/{t['slug']}.html" for t in TRADES]
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + \
-     "".join(f"  <url><loc>{DOMAIN}/{u}</loc><lastmod>2026-10-15</lastmod></url>\n" for u in urls) + "</urlset>\n"
+     "".join(f"  <url><loc>{DOMAIN}/{u}</loc><lastmod>2026-10-19</lastmod></url>\n" for u in urls) + "</urlset>\n"
 open(os.path.join(ROOT, "sitemap.xml"), "w").write(sm)
 open(os.path.join(ROOT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
 llms = [f"# {NAME}", "", f"> {NAME} is a free directory of real AI tools for small businesses, organized by trade. Each listing links to the tool's official site and explains, in plain English, how a business in that trade would use it. Listings were checked against official sites in {CHECKED}. No pricing, ratings or usage statistics are invented; order on a page is not a ranking. Sponsored placements are labeled.", "", "## Trades"]
