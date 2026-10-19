@@ -55,6 +55,7 @@ def page(path, title, desc, body, depth=0, active=""):
   <p class="container fine">© 2026 {NAME}. Tool names and trademarks belong to their owners. Some links are affiliate links, so we may earn a commission at no extra cost to you. Sponsored placements are marked “Sponsor”. Listings last checked {CHECKED}.</p>
 </footer>
 <script src="{p}js/main.js" defer></script>
+<script data-goatcounter="https://fieldtoolai.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
 '''
@@ -218,7 +219,8 @@ page("about.html", f"How We Pick AI Tools & Affiliate Disclosure | {NAME}",
 priv = f'''<section class="page-hero"><div class="container"><h1>Privacy</h1></div></section>
 <section class="section"><div class="container narrow prose">
 <p>This early version of {NAME} doesn't collect personal information. The newsletter form isn't connected to any service yet and doesn't store what you type.</p>
-<p>When we connect a newsletter service or analytics, we'll update this page to explain what's collected and why.</p>
+<p>We count visits with GoatCounter, a privacy-friendly visitor counter. It doesn't use cookies or collect personal data. It only records simple totals, like which pages are viewed and how often.</p>
+<p>When we connect a newsletter service, we'll update this page to explain what's collected and why.</p>
 <p><em>Last updated {CHECKED}.</em></p></div></section>'''
 page("privacy.html", f"Privacy | {NAME}", f"Privacy information for {NAME}.", priv, 0)
 
