@@ -1,0 +1,5 @@
+screenshots/
+build/__pycache__/
+*.pyc
+.DS_Store
+*.tar.gz

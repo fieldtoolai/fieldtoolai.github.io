@@ -1,0 +1,27 @@
+# Field Tool AI
+
+> Field Tool AI is a free directory of real AI tools for small businesses, organized by trade. Each listing links to the tool's official site and explains, in plain English, how a business in that trade would use it. Listings were checked against official sites in October 2026. No pricing, ratings or usage statistics are invented; order on a page is not a ranking. Sponsored placements are labeled.
+
+## Trades
+- [AI Tools for Plumbers & HVAC Companies](https://fieldtoolai.com/trades/plumbing-hvac.html): ServiceTitan, Housecall Pro, Jobber, Avoca AI, Rilla, Podium
+- [AI Tools for Realtors & Real Estate Agents](https://fieldtoolai.com/trades/realtors.html): Lofty, Ylopo, ReimagineHome, Fireflies.ai, Canva
+- [AI Tools for Salons, Barbershops & Spas](https://fieldtoolai.com/trades/salons-barbers.html): Boulevard, Vagaro, Fresha, GlossGenius, Canva
+- [AI Tools for Restaurants, Cafés & Bars](https://fieldtoolai.com/trades/restaurants.html): Toast, Slang AI, Popmenu, Owner.com, MarginEdge, 7shifts
+- [AI Tools for Contractors, Remodelers & Builders](https://fieldtoolai.com/trades/contractors.html): Buildertrend, JobTread, Handoff, Togal.AI, CompanyCam, Procore
+- [AI Tools for Accountants & Bookkeepers](https://fieldtoolai.com/trades/accountants.html): QuickBooks, Xero, Dext, Karbon, Botkeeper, Digits
+- [AI Tools for Retail Shops & Online Stores](https://fieldtoolai.com/trades/retail.html): Shopify, Square, Lightspeed, Klaviyo, Gorgias
+- [AI Tools for Cleaning & Maid Services](https://fieldtoolai.com/trades/cleaners.html): Jobber, Housecall Pro, ZenMaid, Goodcall, Smith.ai
+
+## General AI tools for any trade
+- [ChatGPT](https://chatgpt.com/): Write quotes, emails, job descriptions and social posts, or talk through a business problem.
+- [Claude](https://www.anthropic.com/claude): Draft documents, summarize long files and work through spreadsheets and plans.
+- [Google Gemini](https://gemini.google.com/): Google's AI assistant for writing, planning and brainstorming; handy if you live in Google tools.
+- [Microsoft Copilot](https://copilot.microsoft.com/): Microsoft's AI assistant; useful if your business runs on Microsoft 365.
+- [Canva](https://www.canva.com/): Design social posts, flyers and logos with AI image and writing tools.
+- [Grammarly](https://www.grammarly.com/): AI writing help in email and on the web so customer messages read clearly.
+- [Otter.ai](https://otter.ai/): AI meeting notes and transcription for calls with clients or your team.
+- [Fyxer](https://www.fyxer.com/): Email assistant that sorts your inbox and drafts replies in your tone.
+
+## About
+- [How we pick tools and affiliate disclosure](https://fieldtoolai.com/about.html)
+- [Advertise / Sponsor](https://fieldtoolai.com/advertise.html): featured directory, trade page and newsletter sponsorships; contact for rates.
