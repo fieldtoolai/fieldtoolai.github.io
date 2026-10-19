@@ -1,6 +1,10 @@
 import os, html, json, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from data import G, TRADES, GENERAL_BLURB
+AFFILIATE_MARKERS = ("fpr=",)  # tracked referral links get rel="sponsored"
+def relfor(url):
+    return "sponsored noopener" if any(m in url for m in AFFILIATE_MARKERS) else "noopener"
+IMPACT_META = "<meta name='impact-site-verification' value='365f3582-7204-4439-9406-2d9814281388'>\n"  # Impact.com site verification (Grammarly)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NAME = "Field Tool AI"
 DOMAIN = "https://fieldtoolai.com"
@@ -26,7 +30,7 @@ def page(path, title, desc, body, depth=0, active=""):
 <meta property="og:type" content="website">
 <meta property="og:url" content="{canon}">
 <meta name="theme-color" content="#0f172a">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧰</text></svg>">
+{IMPACT_META if path == "index.html" else ""}<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧰</text></svg>">
 <link rel="stylesheet" href="{p}css/style.css">
 </head>
 <body>
@@ -48,7 +52,7 @@ def page(path, title, desc, body, depth=0, active=""):
     <div><h2>Trades</h2><ul>{"".join(f'<li><a href="{p}trades/{t["slug"]}.html">{e(t["name"])}</a></li>' for t in TRADES)}</ul></div>
     <div><h2>Site</h2><ul><li><a href="{p}about.html">How we pick tools</a></li><li><a href="{p}about.html#disclosure">Affiliate disclosure</a></li><li><a href="{p}advertise.html">Advertise / Sponsor</a></li><li><a href="{p}privacy.html">Privacy</a></li></ul></div>
   </div>
-  <p class="container fine">© 2026 {NAME}. Tool names and trademarks belong to their owners. We are not affiliated with any tool listed unless marked “Sponsor”. Listings last checked {CHECKED}.</p>
+  <p class="container fine">© 2026 {NAME}. Tool names and trademarks belong to their owners. Some links are affiliate links, so we may earn a commission at no extra cost to you. Sponsored placements are marked “Sponsor”. Listings last checked {CHECKED}.</p>
 </footer>
 <script src="{p}js/main.js" defer></script>
 </body>
@@ -88,7 +92,7 @@ cards = "".join(f'''<a class="trade-card" href="trades/{t["slug"]}.html">
   <h3>{e(t["name"])}</h3>
   <p>{len(t["tools"])} tools checked</p>
   <span class="arrow" aria-hidden="true">→</span></a>''' for t in TRADES)
-gen_cards = "".join(f'''<div class="tool-card compact"><h3><a href="{G[k][1]}" target="_blank" rel="noopener">{e(G[k][0])}</a></h3><span class="tag">{e(G[k][2])}</span><p>{e(GENERAL_BLURB[k])}</p></div>''' for k in ["chatgpt","claude","gemini","copilot","canva","grammarly","otter","fyxer"])
+gen_cards = "".join(f'''<div class="tool-card compact"><h3><a href="{G[k][1]}" target="_blank" rel="{relfor(G[k][1])}">{e(G[k][0])}</a></h3><span class="tag">{e(G[k][2])}</span><p>{e(GENERAL_BLURB[k])}</p></div>''' for k in ["chatgpt","claude","gemini","copilot","canva","grammarly","otter","fyxer"])
 home = f'''<section class="hero">
   <div class="container">
     <p class="eyebrow">For plumbers, salons, restaurants, realtors and every trade in between</p>
@@ -137,9 +141,9 @@ for t in TRADES:
         items.append(f'''<li class="tool-card" id="{n.lower().replace(' ','-').replace('.','')}">
   <div class="tool-head"><h3>{e(n)}</h3><span class="tag">{e(cat)}</span></div>
   <p>{e(desc)}{extra}</p>
-  <a class="tool-link" href="{url}" target="_blank" rel="noopener">Visit {e(n)} official site ↗</a>
+  <a class="tool-link" href="{url}" target="_blank" rel="{relfor(url)}">Visit {e(n)} official site ↗</a>
 </li>''')
-    gens = "".join(f'<li><a href="{G[k][1]}" target="_blank" rel="noopener">{e(G[k][0])}</a>: {e(GENERAL_BLURB[k])}</li>' for k in t["general"])
+    gens = "".join(f'<li><a href="{G[k][1]}" target="_blank" rel="{relfor(G[k][1])}">{e(G[k][0])}</a>: {e(GENERAL_BLURB[k])}</li>' for k in t["general"])
     others = "".join(f'<li><a href="{o["slug"]}.html">{o["icon"]} {e(o["name"])}</a></li>' for o in TRADES if o is not t)
     ld = {"@context":"https://schema.org","@type":"ItemList","name":t["title"],
           "itemListElement":[{"@type":"ListItem","position":i+1,"name":x[0],"url":x[1]} for i,x in enumerate(t["tools"])]}
@@ -157,7 +161,7 @@ for t in TRADES:
   <h2>AI tools for {e(t["name"])}</h2>
   <ol class="tool-list">{"".join(items)}</ol>
   <div class="callout"><h2>Also useful: general AI assistants</h2><ul>{gens}</ul></div>
-  <p class="disclaimer">Features change fast. Descriptions are based on what each company's official website showed in {CHECKED}. Check current features and pricing on their site before you buy. Some links may become affiliate links; see our <a href="../about.html#disclosure">disclosure</a>.</p>
+  <p class="disclaimer">Features change fast. Descriptions are based on what each company's official website showed in {CHECKED}. Check current features and pricing on their site before you buy. Some links are affiliate links; see our <a href="../about.html#disclosure">disclosure</a>.</p>
 </div></section>
 <section class="section alt"><div class="container"><h2>Other trades</h2><ul class="chip-list">{others}</ul></div></section>
 {newsletter()}
