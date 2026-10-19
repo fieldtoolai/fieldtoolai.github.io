@@ -3,7 +3,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from data import G, TRADES, GENERAL_BLURB
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NAME = "Field Tool AI"
-DOMAIN = "https://fieldtoolai.github.io"
+DOMAIN = "https://fieldtoolai.com"
 EMAIL = "leonisas2026@gmail.com"
 CHECKED = "October 2026"
 e = html.escape
