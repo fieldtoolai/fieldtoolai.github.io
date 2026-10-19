@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fieldtoolai.com/sitemap.xml
+Sitemap: https://fieldtoolai.github.io/sitemap.xml
